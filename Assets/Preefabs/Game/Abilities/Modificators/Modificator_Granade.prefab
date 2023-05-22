@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7862758172403392856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761183735426556275}
+  - component: {fileID: 3048583234585946108}
+  m_Layer: 0
+  m_Name: Modificator_Granade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761183735426556275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862758172403392856}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.4697533, y: 8.913237, z: 6.6250134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3048583234585946108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7862758172403392856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9217ec2c1cd2deb40b10cc0a4f8b1712, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: "\u0413\u0440\u0430\u043D\u0430\u0442\u0430"
+  description: "\u0411\u0440\u043E\u0441\u0430\u0435\u0442  \u0433\u0440\u0430\u043D\u0430\u0442\u0443"
+  icon: {fileID: 21300000, guid: 144aa74618b85974a9a50f612c2fa8fd, type: 3}
+  level: 1
+  addingDamageForBot: 10
+  Damage: 10
+  Radius: 10
+  Range: 10
+  TimeOfWork: 2
+  chargeForWave: 10
+  addDamageByLevel: 0
+  addRadiusByLevel: 0
+  addRangeByLevel: 0
+  addTimeOfWorkByLevel: 0
+  grenade: {fileID: 904261294718746948, guid: 042b0c3cc3192ed4ea3820fe57cf75fb, type: 3}
+  speedGrenade: 35

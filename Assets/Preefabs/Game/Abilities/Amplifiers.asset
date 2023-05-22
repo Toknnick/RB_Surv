@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b527673186efd984588224c3d8c602cd, type: 3}
+  m_Name: Amplifiers
+  m_EditorClassIdentifier: 
+  Abilities:
+  - {fileID: 5481142943845367573, guid: c4c372d3fb4f057419bfbbc6f7b35c94, type: 3}
+  - {fileID: 139802810876661589, guid: a867d796a41065d4bbbf2d81f8408ae7, type: 3}
+  - {fileID: 4947096003859521173, guid: e58580b434df2b4489659ab2438f8562, type: 3}
+  - {fileID: 5793234678337256358, guid: 2d5ebfb4d8589bb4ead66e3ee48dba0f, type: 3}
+  - {fileID: 6775180020952241281, guid: 36cfdbeb263317d4ebe447edbd5b9d68, type: 3}
