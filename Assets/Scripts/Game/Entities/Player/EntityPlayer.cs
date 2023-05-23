@@ -16,6 +16,8 @@ public class EntityPlayer : Entity
     [SerializeField] private float criticalChance = 10;
     [Header("Коэфицент увеличения урона")]
     [SerializeField] private float criticalMultiply = 2.1f;
+    [Header("Блокируемый урон")]
+    [SerializeField] private float blockDamage = 1;
 
     public bool IsMellee => isMellee;
 
@@ -29,6 +31,8 @@ public class EntityPlayer : Entity
 
     public void TakeDamage(EntityEnemy damager, float amount)
     {
+        amount -= blockDamage;
+
         if (damager != null)
             damager.TakeDamage(amount * reverseDamage / 100);
 
