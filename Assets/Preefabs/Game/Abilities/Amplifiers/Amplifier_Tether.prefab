@@ -47,5 +47,5 @@ MonoBehaviour:
   name: "\u0421\u0442\u0430\u043B\u044C\u043D\u043E\u0439 \u0442\u0440\u043E\u0441\u0441 "
   description: "Y\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0440\u0430\u0434\u0438\u0443\u0441
     \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439"
-  icon: {fileID: 21300000, guid: 54628aafa20f64b40ae661038ee7abf0, type: 3}
+  icon: {fileID: 21300000, guid: f5990f1190ffc3a41bfb49d6d04478c6, type: 3}
   level: 2

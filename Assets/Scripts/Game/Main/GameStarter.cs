@@ -19,7 +19,6 @@ public class GameStarter : MonoBehaviour
     [Space(12)]
     [SerializeField] private int minCountOfObjects;
     [SerializeField] private int maxCountOfObjects;
-    [SerializeField] private int maxAttempts = 100;
     [Space(12)]
     [SerializeField] private GameObject containerOfBlocks;
     [SerializeField] private GameObject containerOfTraps;
@@ -56,7 +55,7 @@ public class GameStarter : MonoBehaviour
         StartCoroutine(SpawnGround());
         //StartCoroutine(SpawnSpawnPoints());
         yield return new WaitWhile(() => isSpawnning);
-        gameManager = Instantiate(gameManager, new Vector3(0f, 3.5f, 0f), Quaternion.identity);
+        gameManager = Instantiate(gameManager, new Vector3(0f, 6.7f, -4.2f), Quaternion.identity);
         GameManager.instance.SpawnManager.GetSpawnPonints(this.spawnPoints);
     }
 
@@ -95,8 +94,8 @@ public class GameStarter : MonoBehaviour
             nowCountOfAttemps++;
             preefab = gameObjects[Random.Range(0, gameObjects.Count)];
             yield return null;
-            Vector3 randomPosition = new(Random.Range(startPosition.x - 1, startPosition.x - width + 1), preefab.transform.localScale.y / 2,
-                                         Random.Range(startPosition.z - 1, startPosition.z - width + 1));
+            Vector3 randomPosition = new(Random.Range(startPosition.x - 2, startPosition.x - width + 2), preefab.transform.localScale.y / 2,
+                                         Random.Range(startPosition.z - 2, startPosition.z - width + 2));
             Collider[] colliders = Physics.OverlapSphere(randomPosition, preefab.transform.localScale.magnitude);
 
             // Проверка наложения объектов
@@ -121,7 +120,7 @@ public class GameStarter : MonoBehaviour
             foreach (Transform obj in spawnedObjects)
             {
                 // Проверяем наложение границ объектов
-                if (Vector3.Distance(obj.transform.position, position) > 5)
+                if (Vector3.Distance(obj.transform.position, position) > 4)
                     return true;
             }
             return false;

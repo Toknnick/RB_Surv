@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         player = playerTransform.GetComponent<Entity>();
         playerData = playerTransform.GetComponent<PlayerData>();
         playerAI = playerTransform.GetComponent<PlayerAI>();
-        playerController = Instantiate(playerController, transform.position, Quaternion.identity);
+        playerController = Instantiate(playerController, transform.position, Quaternion.Euler(30f, 0f, 0f));
         UIPrefab = Instantiate(UIPrefab);
         playerController.TakePlayer(player);
         spawnManager.enabled = true;

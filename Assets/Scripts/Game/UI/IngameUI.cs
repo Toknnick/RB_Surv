@@ -50,6 +50,7 @@ public class IngameUI : MonoBehaviour
 
     public void QuitFromLvl()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 

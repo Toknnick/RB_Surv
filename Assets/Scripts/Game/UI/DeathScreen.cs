@@ -23,20 +23,28 @@ public class DeathScreen : MonoBehaviour
     private void Start()
     {
         PlayerData data = GameManager.instance.PlayerData;
+        GameManager.instance.Player.OnDie += () =>
+        {
+            TotalSteelPlates.text = "Пластины: " + data.SteelPlatesObtained.ToString();
+            TotalGems.text = "Алмазы: " + data.Gems.ToString();
+            TotalGold.text = "Золото: " + data.Gold.ToString();
+        };
         DeathButton.onClick.AddListener(() => { Loose(); });
         ResurrectionButton.onClick.AddListener(() => { TryResurrect(); });
         MultiplyButton.onClick.AddListener(() => { data.SteelPlatesObtained *= Multiply; data.Gems *= Multiply; data.Gold *= Multiply; Loose(); });
     }
     private void OnEnable()
     {
+        Time.timeScale = 0;
         PlayerData data = GameManager.instance.PlayerData;
 
         if (!isRevived)
             ResurrectionReward();
+    }
 
-        TotalSteelPlates.text += data.SteelPlatesObtained.ToString();
-        TotalGems.text += data.Gems.ToString();
-        TotalGold.text += data.Gold.ToString();
+    private void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 
     public void Loose()
@@ -56,9 +64,9 @@ public class DeathScreen : MonoBehaviour
         //if (User.user.Gold >= ResurrecrtCost)
         //{
         //    User.user.Gold -= ResurrecrtCost;
-            //Resurrect();
+        //Resurrect();
         //}
-         if (data.Gold >= ResurrecrtCost)
+        if (data.Gold >= ResurrecrtCost)
         {
             data.Gold -= ResurrecrtCost;
             Resurrect();

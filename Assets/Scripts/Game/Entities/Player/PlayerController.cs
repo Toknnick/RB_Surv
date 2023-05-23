@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
     public CameraFollower CameraFollower;
 
     private Joystick joystick;
-    private float speed;
     private Entity player;
     private Rigidbody rb;
     private Vector3 movement;
@@ -21,10 +20,9 @@ public class PlayerController : MonoBehaviour
         this.player = player;
         CameraFollower.TakePlayer(this.player.gameObject);
         rb = this.player.GetComponent<Rigidbody>();
-        speed = this.player.Speed;
         joystick = IngameUI.instance.joystick;
-        rb.maxAngularVelocity = speed;
-        rb.maxDepenetrationVelocity = speed;
+        rb.maxAngularVelocity = player.Speed;
+        rb.maxDepenetrationVelocity = player.Speed;
     }
 
     void FixedUpdate()
@@ -47,6 +45,6 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = joystick.Horizontal;
         float moveVertical = joystick.Vertical;
         movement = new(moveHorizontal, 0.0f, moveVertical);
-        rb.velocity = movement * speed;
+        rb.velocity = movement * player.Speed;
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Nitrogen : MonoBehaviour
@@ -28,7 +29,7 @@ public class Nitrogen : MonoBehaviour
 
         foreach (Collider collider in colliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.gameObject.IsDestroyed() == false && collider.CompareTag("Enemy"))
                 if (collider.GetComponent<Enemy>() != null)
                     collider.GetComponent<Enemy>().enabled = true;
         }

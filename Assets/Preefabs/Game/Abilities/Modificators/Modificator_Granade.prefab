@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\u0413\u0440\u0430\u043D\u0430\u0442\u0430"
   description: "\u0411\u0440\u043E\u0441\u0430\u0435\u0442  \u0433\u0440\u0430\u043D\u0430\u0442\u0443"
-  icon: {fileID: 21300000, guid: 144aa74618b85974a9a50f612c2fa8fd, type: 3}
+  icon: {fileID: 21300000, guid: ef3b127725e69f34f88a7f29fa4a0dc4, type: 3}
   level: 1
   addingDamageForBot: 10
   Damage: 10
@@ -58,5 +58,5 @@ MonoBehaviour:
   addRadiusByLevel: 0
   addRangeByLevel: 0
   addTimeOfWorkByLevel: 0
-  grenade: {fileID: 904261294718746948, guid: 042b0c3cc3192ed4ea3820fe57cf75fb, type: 3}
+  grenade: {fileID: 4590977814609525059, guid: 042b0c3cc3192ed4ea3820fe57cf75fb, type: 3}
   speedGrenade: 35

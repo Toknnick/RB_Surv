@@ -3,7 +3,7 @@ using UnityEngine;
 public class Modificator_Grenade : Modificator
 {
     //Оглушаящая граната
-    [SerializeField] private Transform grenade;
+    [SerializeField] private Grenade grenade;
     [SerializeField] private float speedGrenade = 35;
 
     public override void Use()

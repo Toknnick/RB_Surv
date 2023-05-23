@@ -21,7 +21,7 @@ public class Grenade : MonoBehaviour
 
     private IEnumerator Use()
     {
-        rb.velocity = GameManager.instance.PlayerController.GetDirection().normalized * speedGrenade;
+        rb.velocity = GameManager.instance.PlayerController.GetDirection() * speedGrenade;
         yield return new WaitForSecondsRealtime(timeOfWork);
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
 

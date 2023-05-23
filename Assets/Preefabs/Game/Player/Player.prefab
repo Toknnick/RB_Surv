@@ -144,12 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b9e220e052f31c419c877dca742cb32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMellee: 0
+  isMellee: 1
   SlopeChance: 20
   MaxHealth: 15
   Speed: 15
   DamagePerSec: 6
-  AttackRange: 5
+  AttackRange: 2
   AttackRate: 1
 --- !u!114 &1039481711050962129
 MonoBehaviour:
