@@ -23,6 +23,10 @@ public class PlayerData : MonoBehaviour
     private int gold = 0;
     public int Gold { get => gold; set { gold = value; OnGoldChanged?.Invoke(); } }
     #endregion
+    #region SpecialCharge
+    private int specialCharge = 0;
+    public int SpecialCharge { get => specialCharge; set {specialCharge = value; if (specialCharge == 100) { OnSpecialChargeIsOn.Invoke(); specialCharge = 0; } } }
+    #endregion
 
     public event Action OnGoldChanged;
     public event Action OnLevelChanged;

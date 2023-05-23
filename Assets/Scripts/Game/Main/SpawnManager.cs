@@ -188,6 +188,7 @@ public class SpawnManager : MonoBehaviour
             PlayerData data = GameManager.instance.PlayerData;
             data.XP += enemy.GetComponent<EnemyData>().XPForKill;
             data.Gold += enemy.GetComponent<EnemyData>().GoldForKill;
+            data.SpecialCharge += enemy.GetComponent<EnemyData>().SpecialChargeForKill;
             nowKilled++;
             OnChangedWaveStatus?.Invoke(countOfEnemyInWave[WaveIndex], nowKilled);
         };

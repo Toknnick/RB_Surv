@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 1039481711050962129}
   - component: {fileID: 1039481711050962130}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Samurai
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 970683a40096aa34abf289232b8358ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpecialAbility: {fileID: -4112893813730615166, guid: 4150fc16d53d551488d5f7d2380d1fb8,
+    type: 3}
   attackZone: {fileID: 1039481711050962127}
   Amplifiers: []
   Modificators: []

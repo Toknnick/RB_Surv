@@ -7,6 +7,8 @@ public class PlayerAI : MonoBehaviour
     public event Action<Ability, bool, int> OnLearnedAbility;
     public event Action<Ability, bool, int> OnUpgradedAbility;
 
+    public SpecialAbility SpecialAbility;
+
     [SerializeField] SphereCollider attackZone;
 
     [HideInInspector] public List<Ability> Amplifiers;

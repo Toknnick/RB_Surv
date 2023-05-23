@@ -6,4 +6,5 @@ public class EnemyData : MonoBehaviour
 {
     public int XPForKill;
     public int GoldForKill;
+    public int SpecialChargeForKill;
 }

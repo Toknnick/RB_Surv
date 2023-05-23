@@ -22,7 +22,7 @@ public class IngameUI : MonoBehaviour
     [SerializeField] private GameObject confirmationPanel;
     [SerializeField] private GameObject GameOverPanel;
     [SerializeField] private Button exitButton;
-    [SerializeField] private Button SpecialButton;
+    [SerializeField] private Button specialButton;
 
     [SerializeField] private RectTransform hpBar;
     [SerializeField] private Slider LevelBar;
@@ -60,6 +60,12 @@ public class IngameUI : MonoBehaviour
         levelUpScreen.gameObject.SetActive(false);
     }
 
+    private void UseSpecialAbility()
+    {
+        specialButton.gameObject.SetActive(false);
+        playerAI.SpecialAbility.UseSpecial();
+    }
+
     private void UpgrageAbilityOnUI(Ability ability, bool isAmplifier, int numberOfAbilityInList)
     {
         if (isAmplifier)
@@ -89,7 +95,7 @@ public class IngameUI : MonoBehaviour
 
     private void Start()
     {
-        SpecialButton.gameObject.SetActive(false);
+        specialButton.gameObject.SetActive(false);
         confirmationPanel.SetActive(false);
         exitButton.gameObject.SetActive(true);
 
@@ -98,6 +104,10 @@ public class IngameUI : MonoBehaviour
         playerAI = GameManager.instance.PlayerAI;
         spawnManager = GameManager.instance.SpawnManager;
 
+        playerData.OnSpecialChargeIsOn += () =>
+        {
+            specialButton.gameObject.SetActive(true);
+        };
         playerAI.OnLearnedAbility += SetAbility;
         playerAI.OnUpgradedAbility += UpgrageAbilityOnUI;
 
@@ -109,6 +119,7 @@ public class IngameUI : MonoBehaviour
         playerData.OnXPChanged += ProgressLevelBar;
         player.OnDie += ShowDeathScreen;
         spawnManager.OnChangedWaveStatus += ProgressWaveBar;
+        specialButton.onClick.AddListener(() => { UseSpecialAbility(); });
 
         player.OnHealthChange += () =>
         {
@@ -130,6 +141,10 @@ public class IngameUI : MonoBehaviour
         playerData.OnGoldChanged -= () => { gold.text = playerData.Gold.ToString(); };
         playerData.OnLevelChanged -= () => { LvL.text = playerData.Level.ToString(); };
         spawnManager.OnWaveChanged -= () => { wave.text = (spawnManager.WaveIndex + 1).ToString(); };
+        playerData.OnSpecialChargeIsOn -= () =>
+        {
+            specialButton.gameObject.SetActive(false);
+        };
 
         spawnManager.OnAllWave -= ShowGameOverPanel;
         playerData.OnXPChanged -= ProgressLevelBar;

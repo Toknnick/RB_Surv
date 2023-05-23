@@ -129,8 +129,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47858397006561111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.9, y: 1.53, z: 0}
-  m_LocalScale: {x: 1.8719, y: 2, z: 1.805}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 47858396870072984}
@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   XPForKill: 100
   GoldForKill: 1
+  SpecialChargeForKill: 2
 --- !u!1 &3146616661006836916
 GameObject:
   m_ObjectHideFlags: 0
