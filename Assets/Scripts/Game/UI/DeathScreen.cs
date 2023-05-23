@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DeathScreen : MonoBehaviour
 {
     [Header("Стоймость воскрешения")]
-    [SerializeField] private int ResurrecrtCost;
+    [SerializeField] private int ResurrecrtCost = 5;
     [SerializeField] private int Multiply = 3;
     [SerializeField] private TextMeshProUGUI TotalSteelPlates;
     [SerializeField] private TextMeshProUGUI TotalGems;
@@ -79,12 +79,11 @@ public class DeathScreen : MonoBehaviour
 
     private void Resurrect()
     {
-        Time.timeScale = 1;
-        Entity player = GameManager.instance.PlayerTransform.GetComponent<Entity>();
-        player.CurrentHealth = player.MaxHealth;
+        GameManager.instance.Player.StartCoroutine(GameManager.instance.Player.Resurrect());
         isRevived = true;
         ResurrectScreen.gameObject.SetActive(false);
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     private void ResurrectionReward()

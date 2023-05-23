@@ -14,9 +14,9 @@ public class PlayerAI : MonoBehaviour
     [HideInInspector] public List<Ability> Amplifiers;
     [HideInInspector] public List<Ability> Modificators;
 
-    private float damagePerSec;
-    private Entity player;
-    private Entity target;
+    private float damage;
+    private EntityPlayer player;
+    private EntityEnemy target;
     private float attackRate;
     private float nowTime;
 
@@ -55,8 +55,8 @@ public class PlayerAI : MonoBehaviour
 
     private void Start()
     {
-        player = GetComponent<Entity>();
-        damagePerSec = player.DamagePerSec;
+        player = GetComponent<EntityPlayer>();
+        damage = player.Damage;
         attackZone.radius = player.AttackRange;
         attackRate = player.AttackRate;
     }
@@ -70,28 +70,34 @@ public class PlayerAI : MonoBehaviour
             Debug.Log("Дамажит игрок");
             nowTime = 0;
 
-            if (target.gameObject.layer == 1 && player.IsMellee == false)
-                player.DealDamage(target, damagePerSec * 0.2f);
+            if (target.gameObject.GetComponent<EnemyArmoured>() && player.IsMellee == false)
+                player.DealDamage(target, damage * 0.2f);
             else
-                player.DealDamage(target, damagePerSec);
+                player.DealDamage(target, damage);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (target == null && !other.isTrigger && other.transform.CompareTag("Enemy"))
-            target = other.gameObject.GetComponent<Entity>();
+            target = other.gameObject.GetComponent<EntityEnemy>();
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (target == null && !other.isTrigger && other.transform.CompareTag("Enemy"))
-            target = other.gameObject.GetComponent<Entity>();
+            target = other.gameObject.GetComponent<EntityEnemy>();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.isTrigger && target == other.transform.CompareTag("Enemy"))
             target = null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(gameObject.transform.position, player.AttackRange * 2f);
     }
 }

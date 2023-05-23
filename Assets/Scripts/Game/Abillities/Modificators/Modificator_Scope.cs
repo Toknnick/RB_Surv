@@ -20,7 +20,7 @@ public class Modificator_Scope : Modificator
     {
         Entity player = GameManager.instance.Player;
         player.AttackRange += range;
-        player.DamagePerSec += damage;
+        player.Damage += damage;
         player.GetComponent<PlayerData>().OnXPChanged += StopUseScope;
     }
 
@@ -28,7 +28,7 @@ public class Modificator_Scope : Modificator
     {
         Entity player = GameManager.instance.Player;
         player.AttackRange -= range;
-        player.DamagePerSec -= damage;
+        player.Damage -= damage;
         player.GetComponent<PlayerData>().OnXPChanged -= StopUseScope;
     }
 }

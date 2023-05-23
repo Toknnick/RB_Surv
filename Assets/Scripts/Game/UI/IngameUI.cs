@@ -29,7 +29,7 @@ public class IngameUI : MonoBehaviour
     [SerializeField] private Slider WaveBar;
 
 
-    private Entity player;
+    private EntityPlayer player;
     private PlayerAI playerAI;
     private SpawnManager spawnManager;
     private PlayerData playerData;
@@ -121,7 +121,7 @@ public class IngameUI : MonoBehaviour
         spawnManager.OnChangedWaveStatus += ProgressWaveBar;
         specialButton.onClick.AddListener(() => { UseSpecialAbility(); });
 
-        player.OnHealthChange += () =>
+        player.OnHealthChanged += () =>
         {
             Vector3 a = hpBar.localScale;
             a.x = player.CurrentHealth / player.MaxHealth;
@@ -151,7 +151,7 @@ public class IngameUI : MonoBehaviour
         player.OnDie -= ShowDeathScreen;
         spawnManager.OnChangedWaveStatus -= ProgressWaveBar;
 
-        player.OnHealthChange -= () =>
+        player.OnHealthChanged -= () =>
         {
             Vector3 a = hpBar.localScale;
             a.x = player.CurrentHealth / player.MaxHealth;

@@ -46,19 +46,19 @@ public class EnemyAquariumHead : Enemy
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out Entity e))
+        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
         {
             isCanMove = false;
-            StartCoroutine(DealDamage(e));
+            StartCoroutine(DealDamage(player));
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out Entity e))
+        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
         {
             isCanMove = true;
-            StopCoroutine(DealDamage(e));
+            StopCoroutine(DealDamage(player));
         }
     }
 }

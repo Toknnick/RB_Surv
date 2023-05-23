@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1039481711050962127}
   - component: {fileID: 1039481711050962135}
   - component: {fileID: 1039481711050962131}
-  - component: {fileID: 1039481711050962128}
+  - component: {fileID: 8435511632605851767}
   - component: {fileID: 1039481711050962129}
   - component: {fileID: 1039481711050962130}
   m_Layer: 0
@@ -132,7 +132,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &1039481711050962128
+--- !u!114 &8435511632605851767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,16 +141,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1039481711050962136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9e220e052f31c419c877dca742cb32, type: 3}
+  m_Script: {fileID: 11500000, guid: 57e2ae74b62f5d04ea85459e09e9920a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMellee: 1
-  SlopeChance: 20
-  MaxHealth: 15
-  Speed: 15
-  DamagePerSec: 6
+  MaxHealth: 20
+  Speed: 10
+  Damage: 10
   AttackRange: 2
   AttackRate: 1
+  isMellee: 1
+  SlopeChance: 10
+  reverseDamage: 10
+  criticalChance: 10
+  criticalMultiply: 2.1
 --- !u!114 &1039481711050962129
 MonoBehaviour:
   m_ObjectHideFlags: 0

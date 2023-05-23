@@ -133,7 +133,7 @@ public class SpawnManager : MonoBehaviour
         bool isHavePosition = false;
 
         while (positions.Count != countOfPositions)
-            {
+        {
             isHavePosition = false;
             pos = spawnPoints[Random.Range(0, spawnPoints.Count - 1)];
 
@@ -180,7 +180,8 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEntity(Vector3 pos)
     {
-        Entity enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], pos, Quaternion.identity, enemiesContainer).GetComponent<Entity>();
+        pos = new Vector3(pos.x, 2f, pos.z);
+        EntityEnemy enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], pos, Quaternion.identity, enemiesContainer).GetComponent<EntityEnemy>();
         enemy.CurrentHealth = enemy.MaxHealth;
         enemy.OnDie -= () => { };
         enemy.OnDie += () =>

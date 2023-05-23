@@ -45,7 +45,7 @@ public class SamuraiAbility : SpecialAbility
             {
                 if (collider.CompareTag("Enemy"))
                 {
-                    Entity enemy = collider.GetComponent<Entity>();
+                    EntityEnemy enemy = collider.GetComponent<EntityEnemy>();
                     enemy.TakeDamage(damage);
                 }
             }

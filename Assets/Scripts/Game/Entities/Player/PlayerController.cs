@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         return movement;
     }
 
-    public void TakePlayer(Entity player)
+    public void TakePlayer(EntityPlayer player)
     {
         this.player = player;
         CameraFollower.TakePlayer(this.player.gameObject);

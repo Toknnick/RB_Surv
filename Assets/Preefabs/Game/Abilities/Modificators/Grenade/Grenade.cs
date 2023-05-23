@@ -28,7 +28,7 @@ public class Grenade : MonoBehaviour
         foreach (Collider collider in colliders)
         {
             if (collider.CompareTag("Enemy"))
-                collider.GetComponent<Entity>().TakeDamage(damage);
+                collider.GetComponent<EntityEnemy>().TakeDamage(damage);
         }
 
         Destroy(gameObject);

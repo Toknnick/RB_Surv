@@ -20,7 +20,7 @@ public class Capsule : MonoBehaviour
 
     private IEnumerator AddParametrs()
     {
-        Entity player = GameManager.instance.Player;
+        EntityPlayer player = GameManager.instance.Player;
 
         if (nowLevel <= Level)
         {

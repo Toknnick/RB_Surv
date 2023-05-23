@@ -13,19 +13,19 @@ public class Enemy : MonoBehaviour
     protected float speed;
     protected bool isCanMove = true;
     protected float damagePerSec;
-    protected Entity enemy;
+    protected EntityEnemy enemy;
     protected GameObject player;
     protected Vector3 moveDirection;
 
     protected virtual void Start()
     {
         player = GameManager.instance.PlayerTransform;
-        enemy = GetComponent<Entity>();
+        enemy = GetComponent<EntityEnemy>();
         speed = enemy.Speed;
-        damagePerSec = enemy.DamagePerSec;
+        damagePerSec = enemy.Damage;
         attackZone.radius = enemy.AttackRange;
         canvas.worldCamera = GameManager.instance.PlayerController.CameraFollower.GetComponent<Camera>();
-        enemy.OnHealthChange += () => { hp.gameObject.SetActive(enemy.CurrentHealth != enemy.MaxHealth); var a = hpBar.localScale; a.x = enemy.CurrentHealth / enemy.MaxHealth; hpBar.localScale = a; };
+        enemy.OnHealthChanged += () => { hp.gameObject.SetActive(enemy.CurrentHealth != enemy.MaxHealth); var a = hpBar.localScale; a.x = enemy.CurrentHealth / enemy.MaxHealth; hpBar.localScale = a; };
     }
 
     protected virtual void FixedUpdate()
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual IEnumerator DealDamage(Entity player)
+    protected virtual IEnumerator DealDamage(EntityPlayer player)
     {
         while (true)
         {

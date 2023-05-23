@@ -22,12 +22,12 @@ public class Battery : MonoBehaviour
         Entity player = GameManager.instance.Player;
 
         player.Speed += addSpeed;
-        player.DamagePerSec += addAttack;
+        player.Damage += addAttack;
 
         yield return new WaitForSecondsRealtime(timeOfWork);
 
         player.Speed -= addSpeed;
-        player.DamagePerSec -= addAttack;
+        player.Damage -= addAttack;
 
         Destroy(gameObject);
     }

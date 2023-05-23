@@ -10,9 +10,9 @@ public class Amplifier_Pipes : Ability
 
     public override void Use()
     {
-        Entity player = GameManager.instance.Player;
+        EntityPlayer player = GameManager.instance.Player;
 
         if (player.IsMellee)
-            player.DamagePerSec += player.DamagePerSec * 0.2f;
+            player.Damage += player.Damage * 0.2f;
     }
 }

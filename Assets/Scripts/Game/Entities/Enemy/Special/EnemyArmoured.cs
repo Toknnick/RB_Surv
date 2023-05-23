@@ -23,7 +23,7 @@ public class EnemyArmoured : Enemy
             base.FixedUpdate();
     }
 
-    private IEnumerator Jump(Entity player)
+    private IEnumerator Jump(EntityPlayer player)
     {
         Vector3 position = player.transform.position;
         Vector3 startPosition = transform.position;
@@ -57,10 +57,10 @@ public class EnemyArmoured : Enemy
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out Entity e))
+        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
         {
             isCanMove = false;
-            StartCoroutine(Jump(e));
+            StartCoroutine(Jump(player));
         }
     }
 }

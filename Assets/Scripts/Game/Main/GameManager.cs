@@ -11,14 +11,14 @@ public class GameManager : MonoBehaviour
     private GameObject playerTransform;
     private PlayerAI playerAI;
     private PlayerData playerData;
-    private Entity player;
+    private EntityPlayer player;
 
     public SpawnManager SpawnManager => spawnManager;
     public PlayerController PlayerController => playerController;
     public GameObject PlayerTransform { get => playerTransform; }
     public PlayerData PlayerData { get => playerData; }
     public PlayerAI PlayerAI { get => playerAI; }
-    public Entity Player { get => player; }
+    public EntityPlayer Player { get => player; }
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         //User.user.Load();
 
         playerTransform = Instantiate(playerPrefab, new Vector3(0, playerPrefab.transform.lossyScale.y / 2f, 0), Quaternion.identity);
-        player = playerTransform.GetComponent<Entity>();
+        player = playerTransform.GetComponent<EntityPlayer>();
         playerData = playerTransform.GetComponent<PlayerData>();
         playerAI = playerTransform.GetComponent<PlayerAI>();
         playerController = Instantiate(playerController, transform.position, Quaternion.Euler(30f, 0f, 0f));
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         playerController.TakePlayer(player);
         spawnManager.enabled = true;
 
-        if (playerTransform == null || player == null || playerData == null || playerAI == null)
+        if (playerTransform == null || player == null || playerData == null || playerAI == null || UIPrefab == null)
         {
             Debug.Log(playerTransform + "playerTransform");
             Debug.Log(player + "player");

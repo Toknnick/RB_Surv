@@ -289,8 +289,8 @@ GameObject:
   - component: {fileID: 6368962962154255193}
   - component: {fileID: 6368962962154255185}
   - component: {fileID: 6368962962154255197}
+  - component: {fileID: -4626215067782968417}
   - component: {fileID: 7410894381589431476}
-  - component: {fileID: 6368962962154255192}
   - component: {fileID: 6368962962154255194}
   m_Layer: 0
   m_Name: Enemy_AquariumHead
@@ -408,6 +408,23 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-4626215067782968417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6368962962154255184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce65a5ce99d2ee418545db37f94f991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 20
+  Speed: 10
+  Damage: 10
+  AttackRange: 1
+  AttackRate: 1
 --- !u!114 &7410894381589431476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,25 +443,6 @@ MonoBehaviour:
   canvas: {fileID: 5861907594048345424}
   head: {fileID: 6368962962027140766}
   timeToGrow: 5
---- !u!114 &6368962962154255192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6368962962154255184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b9e220e052f31c419c877dca742cb32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMellee: 0
-  SlopeChance: 0
-  MaxHealth: 10
-  Speed: 9
-  DamagePerSec: 0.5
-  AttackRange: 1
-  AttackRate: 1
 --- !u!114 &6368962962154255194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   XPForKill: 20
-  GoldForKill: 100
+  GoldForKill: 1
   SpecialChargeForKill: 2
 --- !u!1 &6585610880731065933
 GameObject:
