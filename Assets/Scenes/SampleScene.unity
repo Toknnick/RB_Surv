@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982b3dc4feeb25a4281ebd370b849fc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1892261084233642107, guid: c55e870ce36fd21428c65394c1449a05,
+  gameManager: {fileID: 7551431845633939510, guid: c55e870ce36fd21428c65394c1449a05,
     type: 3}
   traps:
   - {fileID: 7720031742843907556, guid: cfdc7c14357e40847aaf76117532b487, type: 3}

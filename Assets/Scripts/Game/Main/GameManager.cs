@@ -55,6 +55,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GetComponent<NavMeshSurface>().BuildNavMesh();
-        //spawnManager.enabled = true;
+        spawnManager.enabled = true;
     }
 }

@@ -22,6 +22,8 @@ public class EnemyArmoured : Enemy
     {
         if (!isJumping)
         {
+            base.Update();
+
             if (isSetRunAnimation && navMeshAgent.remainingDistance != 0 && navMeshAgent.remainingDistance <= attackRange)
             {
                 enemyAnimationController.SetAttack();
@@ -29,30 +31,27 @@ public class EnemyArmoured : Enemy
                 isSetRunAnimation = false;
             }
 
-            if (isSetRunAnimation)
-                base.Update();
         }
+
     }
 
     private IEnumerator Jump(EntityPlayer player)
     {
-        enemyAnimationController.StopAnim();
         isJumping = true;
         Vector3 position = player.transform.position;
         Vector3 startPosition = transform.position;
         meshRenderer.material = changingMaterial;
-        float nowTime = 0;
         yield return new WaitForSecondsRealtime(timeToPrepareToJump);
+        float nowTime = 0;
 
         while (nowTime < timeToJump)
         {
-            transform.position = Vector3.Lerp(startPosition, position, nowTime / timeToJump);
             nowTime += Time.deltaTime;
+            gameObject.transform.position = Vector3.Lerp(startPosition, position, nowTime / timeToJump);
             yield return null;
         }
 
-        yield return new WaitForSecondsRealtime(timeToJump);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, enemy.AttackRange);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, enemy.AttackRange / 3f);
 
         foreach (Collider collider in colliders)
         {

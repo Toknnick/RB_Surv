@@ -194,12 +194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesContainer: {fileID: 6452014345514848453}
   enemies:
-  - {fileID: 7360504715959030992, guid: 90338023c4fe10b4298fcb25929e3f92, type: 3}
-  - {fileID: 6368962962154255184, guid: d6548eab51a30584e9e39f91e683fe78, type: 3}
-  - {fileID: 47858397006561111, guid: f2f8018cb13f0294da1215ebbfa0e435, type: 3}
-  - {fileID: 7360504715959030992, guid: 90338023c4fe10b4298fcb25929e3f92, type: 3}
-  - {fileID: 6246105852397122532, guid: 7e898da63dbd3904ab8eda5ae86bef95, type: 3}
-  - {fileID: 8596542177083307432, guid: 85b2bc56d408c5d4ba6ba15b3e0dc049, type: 3}
+  - {fileID: 1565066731988959877, guid: 8bbfd4aa9c41bd54dadd181e117d53af, type: 3}
+  - {fileID: 7803998083481207304, guid: 851419434b6724f4b968e02fec1769f5, type: 3}
+  - {fileID: 8174272051342615536, guid: 67a44a585b341414eb659c9a85c500dc, type: 3}
+  - {fileID: 8408638906618481145, guid: d6548eab51a30584e9e39f91e683fe78, type: 3}
+  - {fileID: 571063810350518870, guid: f2f8018cb13f0294da1215ebbfa0e435, type: 3}
   countOfEnemyInWave: 0100000002000000030000000500000005000000050000000500000005000000
   timeForNewSpawn: 0.3
 --- !u!114 &8914894782592071582
@@ -221,7 +220,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 55
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1

@@ -21,6 +21,8 @@ public class EnemyAquariumHead : Enemy
     protected override void Update()
     {
         nowTime += Time.deltaTime;
+        Debug.Log(navMeshAgent.remainingDistance);
+        Debug.Log(isSetRunAnimation + "isSetRunAnimation");
 
         if (isHaveHead)
         {
@@ -44,8 +46,7 @@ public class EnemyAquariumHead : Enemy
                 }
             }
 
-            if (isSetRunAnimation)
-                base.Update();
+            base.Update();
         }
     }
 

@@ -10,24 +10,30 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void SetRun()
     {
+        if(animator != null)
         animator.CrossFade(run, 0.1f);
     }
 
     public void SetAttack()
     {
-        animator.CrossFade(attack, 0.1f);
+        if (animator != null)
+            animator.CrossFade(attack, 0.1f);
     }
 
     public void SetDie()
     {
         GetComponent<Enemy>().Off();
-        animator.CrossFade(die, 0.1f);
+
+        if (animator != null)
+            animator.CrossFade(die, 0.1f);
+
         StartCoroutine(Destroy());
     }
 
     public void StopAnim()
     {
-        animator.StopPlayback();
+        if (animator != null)
+            animator.StopPlayback();
     }
 
     private void Start()
