@@ -17,6 +17,13 @@ public class Enemy : MonoBehaviour
     protected EntityEnemy enemy;
     protected EntityPlayer player;
 
+    public void Off()
+    {
+        hpBar.gameObject.SetActive(false);
+        hp.gameObject.SetActive(false);
+        enabled = false;
+    }
+
     protected virtual void Start()
     {
         player = GameManager.instance.Player;

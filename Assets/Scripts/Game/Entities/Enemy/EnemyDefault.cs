@@ -25,7 +25,7 @@ public class EnemyDefault : Enemy
         {
             isSetRunAnimation = false;
         }
-        else if (navMeshAgent.remainingDistance >= attackRange && !isSetRunAnimation)
+        else if (navMeshAgent.remainingDistance >= attackRange && !isSetRunAnimation || navMeshAgent.remainingDistance == 0)
         {
             if (nowTime >= attackRate / 2)
             {

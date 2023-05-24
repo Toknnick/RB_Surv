@@ -9,6 +9,7 @@ public class EnemyAquariumHead : Enemy
 
     private bool isCanGrowHead = true;
     private bool isHaveHead = true;
+    private float nowTime = 0;
 
     protected override void Start()
     {
@@ -19,19 +20,28 @@ public class EnemyAquariumHead : Enemy
 
     protected override void Update()
     {
+        nowTime += Time.deltaTime;
+
         if (isHaveHead)
         {
-            if (navMeshAgent.isStopped && isSetRunAnimation)
+            if (!isSetRunAnimation && nowTime >= attackRate)
             {
+                nowTime = 0;
                 enemyAnimationController.SetAttack();
                 DealDamage(player);
+            }
+
+            if (isSetRunAnimation && navMeshAgent.remainingDistance != 0 && navMeshAgent.remainingDistance <= attackRange)
+            {
                 isSetRunAnimation = false;
             }
-            else if (!navMeshAgent.isStopped && !isSetRunAnimation)
+            else if (navMeshAgent.remainingDistance >= attackRange && !isSetRunAnimation || navMeshAgent.remainingDistance == 0)
             {
-                isSetRunAnimation = true;
-                enemyAnimationController.SetRun();
-                DealDamage(player);
+                if (nowTime >= attackRate / 2)
+                {
+                    isSetRunAnimation = true;
+                    enemyAnimationController.SetRun();
+                }
             }
 
             if (isSetRunAnimation)

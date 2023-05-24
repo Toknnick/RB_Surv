@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
@@ -21,6 +20,7 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void SetDie()
     {
+        GetComponent<Enemy>().Off();
         animator.CrossFade(die, 0.1f);
         StartCoroutine(Destroy());
     }
@@ -32,7 +32,7 @@ public class EnemyAnimationController : MonoBehaviour
 
     private void Start()
     {
-        animator = GetComponent<Animator>(); 
+        animator = GetComponent<Animator>();
     }
 
     private IEnumerator Destroy()

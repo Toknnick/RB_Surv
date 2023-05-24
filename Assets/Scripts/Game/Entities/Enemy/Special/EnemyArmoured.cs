@@ -22,16 +22,11 @@ public class EnemyArmoured : Enemy
     {
         if (!isJumping)
         {
-            if (navMeshAgent.isStopped && isSetRunAnimation)
+            if (isSetRunAnimation && navMeshAgent.remainingDistance != 0 && navMeshAgent.remainingDistance <= attackRange)
             {
                 enemyAnimationController.SetAttack();
                 StartCoroutine(Jump(player));
                 isSetRunAnimation = false;
-            }
-            else if (!navMeshAgent.isStopped && !isSetRunAnimation)
-            {
-                isSetRunAnimation = true;
-                enemyAnimationController.SetRun();
             }
 
             if (isSetRunAnimation)
@@ -68,6 +63,8 @@ public class EnemyArmoured : Enemy
             }
         }
 
+        isSetRunAnimation = true;
+        enemyAnimationController.SetRun();
         isJumping = false;
         meshRenderer.material = defaultMateril;
     }
