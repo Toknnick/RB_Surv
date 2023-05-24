@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8435511632605851767}
   - component: {fileID: 1039481711050962129}
   - component: {fileID: 1039481711050962130}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Samurai
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 20
   Speed: 10
-  Damage: 10
+  Damage: 0
   AttackRange: 2
   AttackRate: 1
   isMellee: 1
@@ -154,6 +154,7 @@ MonoBehaviour:
   reverseDamage: 10
   criticalChance: 10
   criticalMultiply: 2.1
+  blockDamage: 1
 --- !u!114 &1039481711050962129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +198,7 @@ GameObject:
   - component: {fileID: 1039481711324974045}
   - component: {fileID: 1039481711324974046}
   - component: {fileID: 1039481711324974047}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

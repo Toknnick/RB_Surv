@@ -133,7 +133,6 @@ public class GameStarter : MonoBehaviour
 
     private IEnumerator SpawnWalls()
     {
-        isSpawnning = true;
         Instantiate(walls[0], new Vector3(startPosition.x, 0f, startPosition.z - width / 2), Quaternion.identity);
         yield return null;
         Instantiate(walls[1], new Vector3(startPosition.x - width / 2, 0f, -startPosition.z), Quaternion.identity).transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
@@ -142,7 +141,6 @@ public class GameStarter : MonoBehaviour
         yield return null;
         Instantiate(walls[1], new Vector3(startPosition.x - width / 2, 0f, startPosition.z), Quaternion.identity).transform.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
         yield return null;
-        isSpawnning = false;
     }
 
     private IEnumerator SpawnByWidth(Vector3 pos)

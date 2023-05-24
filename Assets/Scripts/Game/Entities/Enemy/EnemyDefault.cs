@@ -1,30 +1,40 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
 public class EnemyDefault : Enemy
 {
+    private float nowTime = 0;
+
     protected override void Start()
     {
         base.Start();
-        enemy.OnDie += () => { Destroy(gameObject); };
+        enemy.OnDie += () => { enemyAnimationController.SetDie(); };
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected override void Update()
     {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
-        {
-            isCanMove = false;
-            StartCoroutine(DealDamage(player));
-        }
-    }
+        nowTime += Time.deltaTime;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
+        if (isSetRunAnimation && navMeshAgent.remainingDistance != 0 && navMeshAgent.remainingDistance <= attackRange)
         {
-            isCanMove = true;
-            StopCoroutine(DealDamage(player));
+            if (nowTime >= attackRate)
+            {
+                nowTime = 0;
+                enemyAnimationController.SetAttack();
+                DealDamage(player);
+                isSetRunAnimation = false;
+            }
         }
+        else if (navMeshAgent.remainingDistance >= attackRange && !isSetRunAnimation)
+        {
+            if (nowTime >= attackRate / 2)
+            {
+                isSetRunAnimation = true;
+                enemyAnimationController.SetRun();
+                DealDamage(player);
+            }
+
+        }
+
+        base.Update();
     }
 }

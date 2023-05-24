@@ -1,3 +1,4 @@
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
         playerController = Instantiate(playerController, transform.position, Quaternion.Euler(30f, 0f, 0f));
         UIPrefab = Instantiate(UIPrefab);
         playerController.TakePlayer(player);
-        spawnManager.enabled = true;
+        UIPrefab.GetComponent<Canvas>().worldCamera = GameManager.instance.PlayerController.CameraFollower.GetComponent<Camera>();
 
         if (playerTransform == null || player == null || playerData == null || playerAI == null || UIPrefab == null)
         {
@@ -49,5 +50,11 @@ public class GameManager : MonoBehaviour
             Debug.Log(playerAI + "playerAI");
             Debug.Log(UIPrefab + "UIPrefab");
         }
+    }
+
+    private void Start()
+    {
+        GetComponent<NavMeshSurface>().BuildNavMesh();
+        //spawnManager.enabled = true;
     }
 }

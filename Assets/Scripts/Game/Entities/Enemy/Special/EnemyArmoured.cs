@@ -9,26 +9,43 @@ public class EnemyArmoured : Enemy
     [SerializeField] protected MeshRenderer meshRenderer;
 
     private Material defaultMateril;
+    private bool isJumping = false;
 
     protected override void Start()
     {
         base.Start();
         defaultMateril = meshRenderer.material;
-        enemy.OnDie += () => { Destroy(gameObject); };
+        enemy.OnDie += () => { enemyAnimationController.SetDie(); ; };
     }
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
-        if (isCanMove)
-            base.FixedUpdate();
+        if (!isJumping)
+        {
+            if (navMeshAgent.isStopped && isSetRunAnimation)
+            {
+                enemyAnimationController.SetAttack();
+                StartCoroutine(Jump(player));
+                isSetRunAnimation = false;
+            }
+            else if (!navMeshAgent.isStopped && !isSetRunAnimation)
+            {
+                isSetRunAnimation = true;
+                enemyAnimationController.SetRun();
+            }
+
+            if (isSetRunAnimation)
+                base.Update();
+        }
     }
 
     private IEnumerator Jump(EntityPlayer player)
     {
+        enemyAnimationController.StopAnim();
+        isJumping = true;
         Vector3 position = player.transform.position;
         Vector3 startPosition = transform.position;
         meshRenderer.material = changingMaterial;
-        isCanMove = false;
         float nowTime = 0;
         yield return new WaitForSecondsRealtime(timeToPrepareToJump);
 
@@ -51,16 +68,7 @@ public class EnemyArmoured : Enemy
             }
         }
 
+        isJumping = false;
         meshRenderer.material = defaultMateril;
-        isCanMove = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
-        {
-            isCanMove = false;
-            StartCoroutine(Jump(player));
-        }
     }
 }

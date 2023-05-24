@@ -17,10 +17,26 @@ public class EnemyAquariumHead : Enemy
         enemy.OnDie += GrowHead;
     }
 
-    protected override void FixedUpdate()
+    protected override void Update()
     {
         if (isHaveHead)
-            base.FixedUpdate();
+        {
+            if (navMeshAgent.isStopped && isSetRunAnimation)
+            {
+                enemyAnimationController.SetAttack();
+                DealDamage(player);
+                isSetRunAnimation = false;
+            }
+            else if (!navMeshAgent.isStopped && !isSetRunAnimation)
+            {
+                isSetRunAnimation = true;
+                enemyAnimationController.SetRun();
+                DealDamage(player);
+            }
+
+            if (isSetRunAnimation)
+                base.Update();
+        }
     }
 
     private void GrowHead()
@@ -32,6 +48,7 @@ public class EnemyAquariumHead : Enemy
 
     private IEnumerator TryToGrow()
     {
+        enemyAnimationController.StopAnim();
         enemy.CurrentHealth = enemy.MaxHealth;
         enemy.OnDie -= GrowHead;
         enemy.OnDie += () => { Destroy(gameObject); };
@@ -42,23 +59,5 @@ public class EnemyAquariumHead : Enemy
         enemy.CurrentHealth = enemy.MaxHealth;
         isHaveHead = true;
         head.SetActive(true);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
-        {
-            isCanMove = false;
-            StartCoroutine(DealDamage(player));
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.isTrigger && other.transform.CompareTag("Player") && other.transform.TryGetComponent(out EntityPlayer player))
-        {
-            isCanMove = true;
-            StopCoroutine(DealDamage(player));
-        }
     }
 }
