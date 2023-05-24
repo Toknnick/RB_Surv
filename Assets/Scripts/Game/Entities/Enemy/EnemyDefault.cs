@@ -14,15 +14,16 @@ public class EnemyDefault : Enemy
     {
         nowTime += Time.deltaTime;
 
+        if (!isSetRunAnimation && nowTime >= attackRate)
+        {
+            nowTime = 0;
+            enemyAnimationController.SetAttack();
+            DealDamage(player);
+        }
+
         if (isSetRunAnimation && navMeshAgent.remainingDistance != 0 && navMeshAgent.remainingDistance <= attackRange)
         {
-            if (nowTime >= attackRate)
-            {
-                nowTime = 0;
-                enemyAnimationController.SetAttack();
-                DealDamage(player);
-                isSetRunAnimation = false;
-            }
+            isSetRunAnimation = false;
         }
         else if (navMeshAgent.remainingDistance >= attackRange && !isSetRunAnimation)
         {
@@ -30,7 +31,6 @@ public class EnemyDefault : Enemy
             {
                 isSetRunAnimation = true;
                 enemyAnimationController.SetRun();
-                DealDamage(player);
             }
 
         }

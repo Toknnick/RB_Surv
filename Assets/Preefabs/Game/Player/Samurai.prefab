@@ -146,15 +146,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 20
   Speed: 10
-  Damage: 0
+  Damage: 2
   AttackRange: 2
   AttackRate: 1
   isMellee: 1
-  SlopeChance: 10
-  reverseDamage: 10
+  SlopeChance: 0
+  reverseDamage: 0
   criticalChance: 10
   criticalMultiply: 2.1
-  blockDamage: 1
+  blockDamage: 0
 --- !u!114 &1039481711050962129
 MonoBehaviour:
   m_ObjectHideFlags: 0
